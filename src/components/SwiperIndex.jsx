@@ -2,14 +2,15 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper/modules";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
 
 const SwiperIndex = ({ slides }) => {
   return (
     <Swiper
-      modules={[Navigation, Pagination]}
+      modules={[Navigation, Pagination, Autoplay]}
       navigation={true}
       pagination={{ clickable: true }}
+      autoplay={{ delay: 3000, disableOnInteraction: false }}
       spaceBetween={30}
       slidesPerView={1}
     >
