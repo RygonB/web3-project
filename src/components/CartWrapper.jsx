@@ -1,13 +1,12 @@
 import React from "react";
-import { CartProvider } from "../context/CartContext.jsx";
-import Navbar from "../components/Navbar.jsx";
+import Navbar from "./Navbar";
 
 const CartWrapper = ({ children }) => {
   return (
-    <CartProvider>
+    <>
       <Navbar />
-      {children}
-    </CartProvider>
+       <main>{children}</main>
+    </>
   );
 };
 

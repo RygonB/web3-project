@@ -1,6 +1,8 @@
 ---
-import CartWrapper from "../components/CartWrapper.jsx";
+import Navbar from "../components/Navbar.jsx";
 const { title } = Astro.props;
+import CartWrapper from "../components/CartWrapper.jsx";
+
 ---
 <!doctype html>
 <html lang="en">
@@ -12,11 +14,15 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
-    <CartWrapper>
-      <slot />
-    </CartWrapper>
+
+	<CartWrapper client:load>
+	  <slot />
+	</CartWrapper>
+
   </body>
 </html>
+
+
 
 <style is:global>
 	:root {

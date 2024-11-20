@@ -1,129 +1,57 @@
 import React, { useState } from "react";
+import "./Navbar.css";
 
 const Navbar = () => {
-  // État pour gérer l'ouverture/fermeture du menu
   const [menuOpen, setMenuOpen] = useState(false);
 
-  // Fonction pour basculer l'état
   const toggleMenu = () => {
+    console.log("Menu toggled! Current state:", menuOpen); // Vérifie si le clic fonctionne
     setMenuOpen((prev) => !prev);
   };
 
   return (
-    <nav style={styles.navbar}>
-      {/* Logo et nom du site */}
-      <div style={styles.logo}>
-        <span style={styles.logoText}>Astrozon</span>
+    <nav className="navbar">
+      {/* Logo */}
+      <div className="navbar-logo">
+        <span>Astrozon</span>
       </div>
 
-      {/* Barre de recherche */}
-      <div style={styles.searchContainer}>
-        <input
-          type="text"
-          placeholder="Rechercher..."
-          style={styles.searchInput}
-        />
+      {/* Conteneur centré pour la barre de recherche */}
+      <div className="navbar-search-container">
+        <div className="navbar-search">
+          <input
+            type="text"
+            placeholder="Rechercher..."
+            className="navbar-search-input"
+          />
+          <button className="navbar-search-button">🔍</button>
+        </div>
       </div>
 
-      {/* Bouton Caddy */}
-      <div style={styles.cartButton}>
-        <button style={styles.button}>🛒</button>
-      </div>
-
-      {/* Menu hamburger */}
-      <div style={styles.hamburger} onClick={toggleMenu}>
-        <div style={styles.bar}></div>
-        <div style={styles.bar}></div>
-        <div style={styles.bar}></div>
+      {/* Conteneur pour le caddy et le menu hamburger */}
+      <div className="navbar-right">
+        <div className="navbar-cart">
+          <button className="navbar-cart-button">🛒</button>
+        </div>
+        <div className="navbar-hamburger" onClick={toggleMenu}>
+          <div className="navbar-hamburger-bar"></div>
+          <div className="navbar-hamburger-bar"></div>
+          <div className="navbar-hamburger-bar"></div>
+        </div>
       </div>
 
       {/* Menu déroulant */}
       {menuOpen && (
-        <div style={styles.dropdown}>
-          <a href="/pc-portable" style={styles.link}>PC Portable</a>
-          <a href="/moniteur" style={styles.link}>Moniteur</a>
-          <a href="/souris" style={styles.link}>Souris</a>
-          <a href="/clavier" style={styles.link}>Clavier</a>
-          <a href="/casque" style={styles.link}>Casque</a>
+        <div className="navbar-dropdown">
+          <a href="/pc-portable">PC Portable</a>
+          <a href="/moniteur">Moniteur</a>
+          <a href="/souris">Souris</a>
+          <a href="/clavier">Clavier</a>
+          <a href="/casque">Casque</a>
         </div>
       )}
     </nav>
   );
-};
-
-const styles = {
-  navbar: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-    padding: "1rem",
-    backgroundColor: "#333",
-    color: "#fff",
-    position: "relative",
-  },
-  logo: {
-    fontSize: "1.5rem",
-    fontWeight: "bold",
-  },
-  logoText: {
-    color: "#fff",
-  },
-  searchContainer: {
-    flex: 1,
-    marginLeft: "1rem",
-    marginRight: "1rem",
-  },
-  searchInput: {
-    width: "100%",
-    padding: "0.5rem",
-    borderRadius: "4px",
-    border: "none",
-  },
-  cartButton: {
-    marginRight: "1rem",
-  },
-  button: {
-    background: "transparent",
-    border: "none",
-    color: "#fff",
-    fontSize: "1.5rem",
-    cursor: "pointer",
-  },
-  hamburger: {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "space-between",
-    height: "1.5rem",
-    cursor: "pointer",
-  },
-  bar: {
-    width: "25px",
-    height: "3px",
-    backgroundColor: "#fff",
-    marginBottom: "3px",
-  },
-  dropdown: {
-    position: "absolute",
-    top: "100%",
-    right: "0",
-    backgroundColor: "#444",
-    borderRadius: "4px",
-    padding: "0.5rem",
-    zIndex: 10,
-    boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
-  },
-  link: {
-    color: "#fff",
-    textDecoration: "none",
-    display: "block",
-    padding: "0.5rem",
-    fontSize: "1rem",
-    borderRadius: "4px",
-    transition: "background-color 0.3s",
-  },
-  linkHover: {
-    backgroundColor: "#555",
-  },
 };
 
 export default Navbar;
