@@ -3,55 +3,56 @@ import categories from '../data/categories.js';
 
 ---
 
-<div class="link-card">
+<div class="category-container">
 	{categories.map((category) => (
 		<ul role="list" class="category-button-grid">
 			<a href={`/category/${category.id}`} class="category-button">
 		  		{category.name}
 			</a>
 		</ul>
-		
 	))}
 </div>
 <style>
 	
-	.category-button {
-		list-style: none;
-		display: flex;
-		padding: 1px;
-		background-color: #23262d;
-		background-image: none;
-		background-size: 400%;
-		border-radius: 7px;
-		background-position: 100%;
-		text-decoration: none;
-		transition: background-position 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-		box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
-		justify-content: center;
-		
-	}
-	/* .link-card > a {
-		width: 100%;
-		text-decoration: none;
-		line-height: 1.4;
-		padding: calc(1.5rem - 1px);
-		border-radius: 8px;
-		color: white;
-		background-color: #23262d;
-		opacity: 0.8;
-	} */
-	
-	.category-button:is(:hover, :focus-within) {
-		background-position: 0;
-		background-image: var(--accent-gradient);
-	}
-	.category-button:is(:hover, :focus-within) h2 {
-		color: rgb(var(--accent-light));
-	}
-	.category-button-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-    gap: 2rem;
-    padding: 0;
-  }
+	.category-container {
+  display: flex; /* Aligner les boutons horizontalement */
+  justify-content: center; /* Centrer les éléments horizontalement */
+  gap: 1rem; /* Espacer les boutons */
+  margin: 1rem 0; /* Ajouter des marges autour */
+}
+
+.category-button {
+  list-style: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  background-color: #2d2f36;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 20px;
+  text-decoration: none;
+  transition: transform 0.2s, background-color 0.3s;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.category-button:hover {
+  background-color: #4a90e2; /* Couleur accentuée */
+  transform: translateY(-3px); /* Petit effet de survol */
+  box-shadow: 0 4px 10px rgba(74, 144, 226, 0.3);
+}
+
+.category-button:focus {
+  outline: none;
+  border-color: #ffffff; /* Mettre en valeur le focus */
+}
+
+.category-button-grid {
+  display: flex; /* Supprimez le "grid" pour utiliser flexbox */
+  flex-wrap: nowrap; /* Empêche le retour à la ligne */
+  justify-content: center; /* Centrage horizontal */
+  padding: 0;
+}
+
 </style>

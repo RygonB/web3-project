@@ -17,10 +17,12 @@ const SwiperIndex = ({ articles }) => {
       {articles.map((article) => (
         <SwiperSlide key={article.id}>
           <div className="slide-container">
+            <a href={`/article/${article.id}`}>
             <img
               src={article.image}
               style={{ width: "100%", borderRadius: "8px" }}
             />
+            </a>
           </div>
         </SwiperSlide>
       ))}
