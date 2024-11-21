@@ -1,6 +1,8 @@
 ---
 import articles from '../../data/articles.js';
 import categories from '../../data/categories.js';
+import ArticleCard from '../../components/ArticleCard.astro';
+import FilterDropdown from '../../components/FilterDropdown.jsx';
 import Layout from '../../layouts/Layout.astro';
 
 export async function getStaticPaths() {
@@ -9,26 +11,26 @@ export async function getStaticPaths() {
   }));
 }
 
-// Obtenez le paramètre "category" depuis l'URL
 const { category } = Astro.params;
-
-// Trouvez la catégorie correspondante
 const currentCategory = categories.find((cat) => cat.id === category);
-const filteredArticles = articles.filter((article) => article.category === category);
+let filteredArticles = articles.filter((article) => article.category === category);
+filteredArticles = filteredArticles.sort((a, b) => a.id - b.id); // Trier par ID par défaut
 ---
+
 <Layout>
   {currentCategory ? (
     <>
-      <h1>Catégorie : {currentCategory.name}</h1>
-      <p>{currentCategory.description}</p>
-      <div class="product-list">
+      <div class="category-header">
+        <div class="info">
+          <span>{filteredArticles.length} articles disponibles</span>
+        </div>
+        <h1>{currentCategory.name}</h1>
+        <FilterDropdown articles={filteredArticles} />
+      </div>
+
+      <div class="article-grid">
         {filteredArticles.map((product) => (
-          <div class="product">
-            <img src={product.image} alt={product.name} />
-            <h2>{product.name}</h2>
-            <p>{product.price.toFixed(2)} €</p>
-            <p>{product.description}</p>
-          </div>
+          <ArticleCard article={product} />
         ))}
       </div>
     </>
@@ -36,3 +38,37 @@ const filteredArticles = articles.filter((article) => article.category === categ
     <p>Catégorie introuvable.</p>
   )}
 </Layout>
+
+<style>
+  .category-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #1d1d1d;
+    color: #fff;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+  }
+
+  .category-header h1 {
+    flex-grow: 1;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  .category-header .info {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #b2bec3;
+  }
+
+  .article-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Grille flexible */
+    gap: 20px; /* Espacement entre les cartes */
+    justify-content: center;
+    align-items: flex-start;
+  }
+</style>
