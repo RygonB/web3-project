@@ -1,0 +1,38 @@
+---
+import articles from '../../data/articles.js';
+import categories from '../../data/categories.js';
+import Layout from '../../layouts/Layout.astro';
+
+export async function getStaticPaths() {
+  return categories.map((category) => ({
+    params: { category: category.id },
+  }));
+}
+
+// Obtenez le paramètre "category" depuis l'URL
+const { category } = Astro.params;
+
+// Trouvez la catégorie correspondante
+const currentCategory = categories.find((cat) => cat.id === category);
+const filteredArticles = articles.filter((article) => article.category === category);
+---
+<Layout>
+  {currentCategory ? (
+    <>
+      <h1>Catégorie : {currentCategory.name}</h1>
+      <p>{currentCategory.description}</p>
+      <div class="product-list">
+        {filteredArticles.map((product) => (
+          <div class="product">
+            <img src={product.image} alt={product.name} />
+            <h2>{product.name}</h2>
+            <p>{product.price.toFixed(2)} €</p>
+            <p>{product.description}</p>
+          </div>
+        ))}
+      </div>
+    </>
+  ) : (
+    <p>Catégorie introuvable.</p>
+  )}
+</Layout>

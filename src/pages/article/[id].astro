@@ -1,0 +1,26 @@
+---
+import articles from '../../data/articles.js';
+import Layout from '../../layouts/Layout.astro';
+
+
+export async function getStaticPaths() {
+  return articles.map((article) => ({
+    params: { id: article.id.toString() }, // Assurez-vous que l'ID est une chaîne
+  }));
+}
+
+const { id } = Astro.params;
+const article = articles.find((a) => a.id === Number(id));
+---
+<Layout>
+  {article ? (
+    <>
+      <h1>{article.name}</h1>
+      <img src={article.image} alt={article.name} />
+      <p>{article.description}</p>
+      <p>Prix : {article.price.toFixed(2)} €</p>
+    </>
+  ) : (
+    <p>Article introuvable.</p>
+  )}
+</Layout>
