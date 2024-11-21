@@ -1,19 +1,4 @@
----
-export const props = ['article'];
-const { article } = Astro.props;
----
-
-<a href={`/article/${article.id}`} class="article-card">
-  <img src={article.image} alt={article.name} class="article-image" />
-  <div class="article-info">
-    <h2>{article.name}</h2>
-    <p>{article.description}</p>
-    <p class="price">{article.price.toFixed(2)} €</p>
-  </div>
-</a>
-
-<style>
-  .article-card {
+.article-card {
     display: block;
     width: 300px;
     text-decoration: none;
@@ -54,4 +39,3 @@ const { article } = Astro.props;
     font-weight: bold;
     color: #ffeaa7;
   }
-</style>

@@ -1,26 +1,20 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-export default function FilterDropdown({ articles }) {
-  const [sortOption, setSortOption] = useState('none');
-
+export default function FilterDropdown({ onSort }) {
   function handleSort(event) {
     const option = event.target.value;
-    setSortOption(option);
-
-    if (option === 'price') {
-      articles.sort((a, b) => a.price - b.price);
-    } else if (option === 'name') {
-      articles.sort((a, b) => a.name.localeCompare(b.name));
-    }
+    onSort(option); // Informer le parent du choix de tri
   }
 
   return (
     <div>
-      <label for="filter">Trier par : </label>
-      <select id="filter" value={sortOption} onChange={handleSort}>
+      <label htmlFor="filter">Trier par : </label>
+      <select id="filter" onChange={handleSort}>
         <option value="none">Aucun</option>
-        <option value="price">Prix</option>
-        <option value="name">Nom</option>
+        <option value="price-asc">Prix (croissant)</option>
+        <option value="price-desc">Prix (décroissant)</option>
+        <option value="name-asc">Nom (A-Z)</option>
+        <option value="name-desc">Nom (Z-A)</option>
       </select>
     </div>
   );

@@ -1,74 +1,30 @@
 ---
 import articles from '../../data/articles.js';
 import categories from '../../data/categories.js';
-import ArticleCard from '../../components/ArticleCard.astro';
-import FilterDropdown from '../../components/FilterDropdown.jsx';
+import CategoryArticles from '../../components/CategoryArticles.jsx';
 import Layout from '../../layouts/Layout.astro';
 
+// Déterminer la liste des chemins
 export async function getStaticPaths() {
   return categories.map((category) => ({
     params: { category: category.id },
   }));
 }
 
+// Paramètres et données pour la page
 const { category } = Astro.params;
 const currentCategory = categories.find((cat) => cat.id === category);
-let filteredArticles = articles.filter((article) => article.category === category);
-filteredArticles = filteredArticles.sort((a, b) => a.id - b.id); // Trier par ID par défaut
+const initialArticles = articles
+  .filter((article) => article.category === category)
+  .sort((a, b) => a.id - b.id); // Trier par ID par défaut
 ---
 
 <Layout>
   {currentCategory ? (
     <>
-      <div class="category-header">
-        <div class="info">
-          <span>{filteredArticles.length} articles disponibles</span>
-        </div>
-        <h1>{currentCategory.name}</h1>
-        <FilterDropdown articles={filteredArticles} />
-      </div>
-
-      <div class="article-grid">
-        {filteredArticles.map((product) => (
-          <ArticleCard article={product} />
-        ))}
-      </div>
+      <CategoryArticles initialArticles={initialArticles} currentCategory={currentCategory} client:load />
     </>
   ) : (
     <p>Catégorie introuvable.</p>
   )}
 </Layout>
-
-<style>
-  .category-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    background-color: #1d1d1d;
-    color: #fff;
-    border-radius: 5px;
-    margin-bottom: 1rem;
-  }
-
-  .category-header h1 {
-    flex-grow: 1;
-    text-align: center;
-    font-size: 1.5rem;
-    font-weight: bold;
-  }
-
-  .category-header .info {
-    font-size: 1rem;
-    font-weight: bold;
-    color: #b2bec3;
-  }
-
-  .article-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Grille flexible */
-    gap: 20px; /* Espacement entre les cartes */
-    justify-content: center;
-    align-items: flex-start;
-  }
-</style>
