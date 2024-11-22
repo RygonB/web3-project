@@ -1,6 +1,7 @@
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import "./SwiperIndex.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 
@@ -18,10 +19,11 @@ const SwiperIndex = ({ articles }) => {
         <SwiperSlide key={article.id}>
           <div className="slide-container">
             <a href={`/article/${article.id}`}>
-            <img
-              src={article.image}
-              style={{ width: "100%", borderRadius: "8px" }}
-            />
+              <img
+                src={article.image}
+                alt={`Image of ${article.title}`}
+                className="slide-image"
+              />
             </a>
           </div>
         </SwiperSlide>
