@@ -2,18 +2,14 @@
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
 import SwiperIndex from "../components/SwiperIndex";
-import slides from "../data/slides";
+import articles from "../data/articles";
 ---
 
 <Layout title="AstroZon">
   <main>
-    <SwiperIndex slides={slides} client:load/>
+    <SwiperIndex articles={articles} client:load/>
     <ul role="list" class="link-card-grid">
-      <Card title="Catégorie 1" />
-      <Card title="Catégorie 2" />
-      <Card title="Catégorie 3" />
-      <Card title="Catégorie 4" />
-      <Card title="Catégorie 5" />
+      <Card/>
     </ul>
   </main>
 </Layout>

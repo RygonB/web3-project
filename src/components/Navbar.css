@@ -1,0 +1,109 @@
+/* Structure principale de la navbar */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    background-color: #333;
+    color: #fff;
+    position: relative;
+  }
+  
+  /* Logo */
+  .navbar-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  /* Barre de recherche */
+  .navbar-search-container {
+    display: flex;
+    justify-content: center;
+    flex: 1;
+  }
+  
+  .navbar-search {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    width: 100%;
+  }
+  
+  .navbar-search-input {
+    border: none;
+    padding: 0.7rem;
+    flex: 1;
+    font-size: 1rem;
+    outline: none;
+  }
+  
+  .navbar-search-button {
+    background-color: #f0a500;
+    border: none;
+    padding: 0.7rem 1rem;
+    cursor: pointer;
+    font-size: 1rem;
+    color: #333;
+  }
+  
+  /* Conteneur pour le caddy et le menu hamburger */
+  .navbar-right {
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar-cart {
+    margin-right: 1rem;
+  }
+  
+  .navbar-cart-button {
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  
+  .navbar-hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 1.5rem;
+    width: 2rem;
+    cursor: pointer;
+  }
+  
+  .navbar-hamburger-bar {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+  }
+  
+  /* Menu déroulant */
+  .navbar-dropdown {
+    position: absolute;
+    top: 60px; /* Ajustez selon la hauteur de la navbar */
+    right: 10px;
+    background-color: #444;
+    color: #fff;
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+  }
+  
+  .navbar-dropdown a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    padding: 0.5rem 0;
+  }
+  
+  .navbar-dropdown a:hover {
+    background-color: #555;
+  }
+  

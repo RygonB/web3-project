@@ -4,7 +4,7 @@ import "swiper/css/pagination";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 
-const SwiperIndex = ({ slides }) => {
+const SwiperIndex = ({ articles }) => {
   return (
     <Swiper
       modules={[Navigation, Pagination, Autoplay]}
@@ -14,13 +14,15 @@ const SwiperIndex = ({ slides }) => {
       spaceBetween={30}
       slidesPerView={1}
     >
-      {slides.map((slide) => (
-        <SwiperSlide key={slide.id}>
+      {articles.map((article) => (
+        <SwiperSlide key={article.id}>
           <div className="slide-container">
+            <a href={`/article/${article.id}`}>
             <img
-              src={slide.image}
+              src={article.image}
               style={{ width: "100%", borderRadius: "8px" }}
             />
+            </a>
           </div>
         </SwiperSlide>
       ))}
