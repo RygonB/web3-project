@@ -1,4 +1,5 @@
 import React from 'react';
+import "./FilterDropdown.css"
 
 export default function FilterDropdown({ onSort }) {
   function handleSort(event) {
@@ -9,7 +10,7 @@ export default function FilterDropdown({ onSort }) {
   return (
     <div>
       <label htmlFor="filter">Trier par : </label>
-      <select id="filter" onChange={handleSort}>
+      <select className="filter-dropdown" id="filter" onChange={handleSort}>
         <option value="none">Aucun</option>
         <option value="price-asc">Prix (croissant)</option>
         <option value="price-desc">Prix (décroissant)</option>
