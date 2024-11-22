@@ -1,0 +1,41 @@
+.article-card {
+    display: block;
+    width: 300px;
+    text-decoration: none;
+    background-color: #2d2d2d;
+    color: #fff;
+    padding: 1rem;
+    border-radius: 8px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  .article-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  }
+
+  .article-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    object-fit: cover;
+  }
+
+  .article-info h2 {
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+
+  .article-info p {
+    font-size: 0.9rem;
+    margin: 0.5rem 0;
+  }
+
+  .price {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #ffeaa7;
+  }

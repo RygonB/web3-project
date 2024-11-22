@@ -1,36 +1,28 @@
 ---
 import articles from '../../data/articles.js';
 import categories from '../../data/categories.js';
+import CategoryArticles from '../../components/CategoryArticles.jsx';
 import Layout from '../../layouts/Layout.astro';
 
+// Déterminer la liste des chemins
 export async function getStaticPaths() {
   return categories.map((category) => ({
     params: { category: category.id },
   }));
 }
 
-// Obtenez le paramètre "category" depuis l'URL
+// Paramètres et données pour la page
 const { category } = Astro.params;
-
-// Trouvez la catégorie correspondante
 const currentCategory = categories.find((cat) => cat.id === category);
-const filteredArticles = articles.filter((article) => article.category === category);
+const initialArticles = articles
+  .filter((article) => article.category === category)
+  .sort((a, b) => a.id - b.id); // Trier par ID par défaut
 ---
+
 <Layout>
   {currentCategory ? (
     <>
-      <h1>Catégorie : {currentCategory.name}</h1>
-      <p>{currentCategory.description}</p>
-      <div class="product-list">
-        {filteredArticles.map((product) => (
-          <div class="product">
-            <img src={product.image} alt={product.name} />
-            <h2>{product.name}</h2>
-            <p>{product.price.toFixed(2)} €</p>
-            <p>{product.description}</p>
-          </div>
-        ))}
-      </div>
+      <CategoryArticles initialArticles={initialArticles} currentCategory={currentCategory} client:load />
     </>
   ) : (
     <p>Catégorie introuvable.</p>
