@@ -146,7 +146,7 @@
 .navbar-dropdown-close {
   position: absolute;
   top: 10px;
-  left: 10px; /* Bouton à gauche dans le menu */
+  right: 10px; /* Bouton à gauche dans le menu */
   background: none;
   border: none;
   color: #fff;
