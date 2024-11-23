@@ -2,6 +2,8 @@
 import Navbar from "../components/Navbar.jsx";
 const { title } = Astro.props;
 import CartWrapper from "../components/CartWrapper.jsx";
+import { CartProvider } from '../context/CartContext.jsx';
+
 
 ---
 <!doctype html>
@@ -15,9 +17,12 @@ import CartWrapper from "../components/CartWrapper.jsx";
   </head>
   <body>
 
-	<CartWrapper client:load>
-	  <slot />
-	</CartWrapper>
+	<CartProvider>
+	  <CartWrapper client:load>
+		<slot />
+	  </CartWrapper>
+	</CartProvider>
+	
 
   </body>
 </html>
