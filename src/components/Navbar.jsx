@@ -101,7 +101,6 @@ const Navbar = () => {
           <div className="search-results">
             {filteredArticles.length > 0 ? (
               <div className="search-article-results">
-                <h4>Articles :</h4>
                 {filteredArticles.map((article) => (
                   <a
                     key={article.id}
