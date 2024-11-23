@@ -4,7 +4,7 @@ import articles from "../data/articles";
 import categories from "../data/categories";
 
 const Navbar = () => {
-  const [menuOpen, setMenuOpen] = useState(false); // État du menu latéral
+  const [menuOpen, setMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredArticles, setFilteredArticles] = useState([]);
   const menuRef = useRef(null); // Référence pour détecter les clics à l'extérieur
@@ -130,7 +130,9 @@ const Navbar = () => {
       {/* Conteneur pour le caddy et le menu hamburger */}
       <div className="navbar-right">
         <div className="navbar-cart">
-          <button className="navbar-cart-button">🛒</button>
+          <a href="/cart" className="navbar-cart-link"> {/* Utilisation d'une balise <a> */}
+            🛒
+          </a>
         </div>
         <div className="navbar-hamburger" onClick={toggleMenu}>
           <div className="navbar-hamburger-bar"></div>

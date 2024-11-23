@@ -244,3 +244,13 @@
 .search-category-item:hover {
   background-color: #f9f9f9;
 }
+.navbar-cart-link {
+  text-decoration: none;
+  color: #fff; /* Couleur blanche pour correspondre à la navbar */
+  font-size: 1.5rem; /* Taille de l'icône */
+  cursor: pointer;
+}
+
+.navbar-cart-link:hover {
+  color: #f0a500; /* Couleur dorée au survol */
+}
