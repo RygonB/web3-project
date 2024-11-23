@@ -38,7 +38,6 @@ const [cartItems, setCartItems] = useState([]);
   
   if (!context) {
     console.warn("useCart appelé hors d'un CartProvider !");
-    console.trace();
     return {
       cartItems: cartItems,
       addToCart: addToCart,

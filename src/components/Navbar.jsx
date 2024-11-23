@@ -31,7 +31,7 @@ const Navbar = () => {
       {/* Conteneur pour le caddy et le menu hamburger */}
       <div className="navbar-right">
         <div className="navbar-cart">
-          <button className="navbar-cart-button">🛒</button>
+          <a href="/cart" className="navbar-cart-button">🛒</a>
         </div>
         <div className="navbar-hamburger" onClick={toggleMenu}>
           <div className="navbar-hamburger-bar"></div>
