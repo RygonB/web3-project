@@ -1,0 +1,121 @@
+---
+import AddToCartButton from '../components/AddToCartButton.jsx';
+
+const product = {
+  image: '/src/images/test.png',
+  description: `
+    Ce produit est incroyable. Voici une description très longue qui nécessite un défilement pour être totalement visible dans l'espace dédié. Vous pouvez l'utiliser de différentes manières et profiter de ses nombreux avantages.     Ce produit est incroyable. Voici une description très longue qui nécessite un défilement pour être totalement visible dans l'espace dédié. Vous pouvez l'utiliser de différentes manières et profiter de ses nombreux avantages.
+    Ce produit est incroyable. Voici une description très longue qui nécessite un défilement pour être totalement visible dans l'espace dédié. Vous pouvez l'utiliser de différentes manières et profiter de ses nombreux avantages.
+    Ce produit est incroyable. Voici une description très longue qui nécessite un défilement pour être totalement visible dans l'espace dédié. Vous pouvez l'utiliser de différentes manières et profiter de ses nombreux avantages.
+  `,
+  price: '49.99€',
+};
+---
+
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Produit</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f9f9f9;
+      }
+
+      /* Conteneur principal */
+      .product-page {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 16px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        background-color: #fff;
+      }
+
+      /* Conteneur image + description */
+      .product-container {
+        display: flex;
+        width: 100%;
+        margin-bottom: 16px;
+        color: black;
+      }
+
+      /* Image du produit */
+      .product-image {
+        max-width: 50%;
+        height: auto;
+        border-radius: 8px;
+      }
+
+      /* Description et prix */
+      .product-details {
+        flex: 1;
+        margin-left: 16px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* Carré de description */
+      .product-description {
+        flex: 1;
+        max-height: 200px;
+        overflow-y: auto;
+        padding: 12px;
+        background-color: #f7f7f7;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 14px;
+        line-height: 1.4;
+        margin-bottom: 16px;
+      }
+
+      /* Prix */
+      .product-price {
+        font-weight: bold;
+        font-size: 18px;
+        text-align: right;
+        margin-bottom: 16px;
+      }
+
+      /* Bouton Ajouter au panier */
+      .add-to-cart-container {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="product-page">
+      <!-- Conteneur principal : image et détails -->
+      <div class="product-container">
+        <!-- Image du produit -->
+        <img src={product.image} alt="Produit" class="product-image" />
+
+        <!-- Détails : Description et prix -->
+        <div class="product-details">
+          <!-- Description avec défilement -->
+          <div class="product-description">
+            {product.description}
+          </div>
+
+          <!-- Prix -->
+          <div class="product-price">
+            {product.price}
+          </div>
+        </div>
+      </div>
+
+      <!-- Bouton Ajouter au panier -->
+      <AddToCartButton />
+    </div>
+  </body>
+</html>
