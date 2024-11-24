@@ -29,15 +29,24 @@ const [cartItems, setCartItems] = useState([]);
   };
   
   const removeFromCart = (item) => {
-    console.log("Suppression du panier :", item);
-    setCartItems(cartItems.filter((i) => i.id !== item.id));
+    console.log("Suppression d'un article du panier :", item);
+  
+    const index = cartItems.findIndex((i) => i.id === item.id);
+  
+    if (index !== -1) {
+      const updatedCart = [...cartItems];
+      updatedCart.splice(index, 1);
+      setCartItems(updatedCart);
+    }
+  
+    console.log("Panier mis à jour après suppression :", cartItems);
   };
+  
   
   const context = useContext(CartContext);
 
   
   if (!context) {
-    console.warn("useCart appelé hors d'un CartProvider !");
     return {
       cartItems: cartItems,
       addToCart: addToCart,
