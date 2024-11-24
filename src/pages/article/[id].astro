@@ -7,7 +7,7 @@ import AddToCartButton from '../../components/AddToCartButton.jsx';
 
 export async function getStaticPaths() {
   return articles.map((article) => ({
-    params: { id: article.id.toString() }, // Assurez-vous que l'ID est une chaîne
+    params: { id: article.id.toString() },
   }));
 }
 
@@ -30,7 +30,6 @@ const article = articles.find((a) => a.id === Number(id));
         background-color: #13151a;
       }
 
-      /* Conteneur principal */
       .product-page {
         display: flex;
         flex-direction: column;
@@ -44,7 +43,6 @@ const article = articles.find((a) => a.id === Number(id));
         background-color: #13151a;
       }
 
-      /* Conteneur image + description */
       .product-container {
         display: flex;
         width: 100%;
@@ -52,14 +50,12 @@ const article = articles.find((a) => a.id === Number(id));
         color: white;
       }
 
-      /* Image du produit */
       .product-image {
         max-width: 50%;
         height: auto;
         border-radius: 8px;
       }
 
-      /* Description et prix */
       .product-details {
         flex: 1;
         margin-left: 16px;
@@ -67,7 +63,6 @@ const article = articles.find((a) => a.id === Number(id));
         flex-direction: column;
       }
 
-      /* Carré de description */
       .product-description {
         flex: 1;
         max-height: 200px;
@@ -81,7 +76,6 @@ const article = articles.find((a) => a.id === Number(id));
         margin-bottom: 16px;
       }
 
-      /* Prix */
       .product-price {
         font-weight: bold;
         font-size: 18px;
@@ -92,19 +86,14 @@ const article = articles.find((a) => a.id === Number(id));
   </head>
   <body>
     <div class="product-page">
-      <!-- Conteneur principal : image et détails -->
       <div class="product-container">
-        <!-- Image du produit -->
         <img src={article.image} alt="Produit" class="product-image" />
 
-        <!-- Détails : Description et prix -->
         <div class="product-details">
-          <!-- Description avec défilement -->
           <div class="product-description">
             {article.description}
           </div>
 
-          <!-- Prix -->
           <div class="product-price">
             {article.price}€
           </div>

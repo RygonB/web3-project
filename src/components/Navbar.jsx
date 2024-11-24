@@ -7,21 +7,18 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredArticles, setFilteredArticles] = useState([]);
-  const menuRef = useRef(null); // Référence pour détecter les clics à l'extérieur
+  const menuRef = useRef(null); 
 
-  // Fonction pour ouvrir/fermer le menu latéral
   const toggleMenu = () => {
-    setMenuOpen((prev) => !prev); // Basculer entre ouvert et fermé
+    setMenuOpen((prev) => !prev); 
   };
 
-  // Fonction pour fermer le menu si on clique ailleurs
   const handleClickOutside = (event) => {
     if (menuRef.current && !menuRef.current.contains(event.target)) {
-      setMenuOpen(false); // Ferme le menu si le clic est à l'extérieur
+      setMenuOpen(false); 
     }
   };
 
-  // Ajout et suppression de l'écouteur d'événements pour détecter les clics à l'extérieur
   useEffect(() => {
     if (menuOpen) {
       document.addEventListener("mousedown", handleClickOutside);
@@ -76,14 +73,12 @@ const Navbar = () => {
 
   return (
     <nav className="navbar">
-      {/* Logo cliquable */}
       <div className="navbar-logo">
         <a href="/" className="navbar-logo-link">
           Astrozon
         </a>
       </div>
 
-      {/* Conteneur centré pour la barre de recherche */}
       <div className="navbar-search-container">
         <div className="navbar-search">
           <input
@@ -96,7 +91,6 @@ const Navbar = () => {
           />
         </div>
 
-        {/* Affichage des résultats de recherche */}
         {searchQuery && (
           <div className="search-results">
             {filteredArticles.length > 0 ? (
@@ -127,10 +121,9 @@ const Navbar = () => {
         )}
       </div>
 
-      {/* Conteneur pour le caddy et le menu hamburger */}
       <div className="navbar-right">
         <div className="navbar-cart">
-          <a href="/cart" className="navbar-cart-link"> {/* Utilisation d'une balise <a> */}
+          <a href="/cart" className="navbar-cart-link">
             🛒
           </a>
         </div>
@@ -141,9 +134,8 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Menu latéral */}
       <div
-        ref={menuRef} // Référence pour détecter les clics extérieurs
+        ref={menuRef} 
         className={`navbar-dropdown ${menuOpen ? "active" : ""}`}
       >
         <button className="navbar-dropdown-close" onClick={toggleMenu}>

@@ -1,4 +1,4 @@
-/* Structure principale de la navbar */
+
 .navbar {
   display: flex;
   align-items: center;
@@ -17,13 +17,13 @@
 
 .navbar-logo-link {
   text-decoration: none;
-  color: inherit; /* Garde la couleur du texte */
+  color: inherit; 
   font-weight: bold;
   font-size: 20px;
 }
 
 .navbar-logo-link:hover {
-  color: #007bff; /* Change la couleur au survol */
+  color: #007bff; 
 }
 
 /* Barre de recherche */
@@ -31,7 +31,7 @@
   display: flex;
   justify-content: center;
   flex: 1;
-  position: relative; /* Position relative pour que les résultats s'alignent avec la barre */
+  position: relative; 
 }
 
 .navbar-search {
@@ -63,14 +63,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 0 5px 5px 0; /* Coin arrondi pour correspondre à l'input */
+  border-radius: 0 5px 5px 0; 
 }
 
 .navbar-search-button:hover {
-  background-color: #ffc107; /* Couleur au survol */
+  background-color: #ffc107; 
 }
 
-/* Conteneur pour le caddy et le menu hamburger */
 .navbar-right {
   display: flex;
   align-items: center;
@@ -102,13 +101,10 @@
   height: 3px;
   background-color: #fff;
 }
-
-/* Menu latéral (side menu) */
-/* Menu latéral (side menu) */
 .navbar-dropdown {
   position: fixed;
   top: 0;
-  right: -300px; /* Commence hors de l'écran sur la droite */
+  right: -300px; 
   width: 300px;
   height: 100%;
   background-color: #222;
@@ -118,18 +114,17 @@
   z-index: 1000;
   overflow-y: auto;
   transition: right 0.3s ease, visibility 0.3s ease;
-  visibility: hidden; /* Masqué par défaut */
+  visibility: hidden; 
 }
 
 .navbar-dropdown.active {
-  right: 0; /* Le menu apparaît */
-  visibility: visible; /* Rendre visible */
+  right: 0; 
+  visibility: visible; 
 }
 
 
-/* Lien dans le menu */
 .navbar-dropdown a {
-  color: #ddd; /* Couleur des liens */
+  color: #ddd; 
   text-decoration: none;
   display: block;
   padding: 1rem;
@@ -138,15 +133,14 @@
 }
 
 .navbar-dropdown a:hover {
-  background-color: #444; /* Fond plus clair au survol */
+  background-color: #444; 
   color: #fff;
 }
 
-/* Bouton pour fermer le menu */
 .navbar-dropdown-close {
   position: absolute;
   top: 10px;
-  right: 10px; /* Bouton à gauche dans le menu */
+  right: 10px; 
   background: none;
   border: none;
   color: #fff;
@@ -154,12 +148,11 @@
   cursor: pointer;
 }
 
-/* Résultats de recherche */
 .search-results {
   position: absolute;
   top: 100%;
   left: 50%;
-  transform: translateX(-50%); /* Centre la zone des résultats par rapport à la barre de recherche */
+  transform: translateX(-50%); 
   background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 4px;
@@ -167,25 +160,23 @@
   overflow-y: auto;
   z-index: 1000;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: 100%; /* Prend toute la largeur de son conteneur parent */
-  max-width: 800px; /* Assurez-vous qu'il correspond à la largeur max de la barre de recherche */
+  width: 100%; 
+  max-width: 800px; 
 }
 
-/* Produits individuels dans les résultats */
 .search-result-item {
   display: flex;
   align-items: center;
   padding: 10px;
   border-bottom: 1px solid #eee;
   text-decoration: none;
-  color: inherit; /* Garde la couleur actuelle */
+  color: inherit; 
 }
 
 .search-result-item:hover {
   background-color: #f9f9f9;
 }
 
-/* Image des produits */
 .search-result-image {
   width: 50px;
   height: 50px;
@@ -193,7 +184,6 @@
   margin-right: 10px;
 }
 
-/* Informations des produits */
 .search-result-info {
   flex: 1;
 }
@@ -216,7 +206,6 @@
   color: #999;
 }
 
-/* Résultats des catégories */
 .search-category-results {
   margin-bottom: 1rem;
 }
@@ -246,11 +235,11 @@
 }
 .navbar-cart-link {
   text-decoration: none;
-  color: #fff; /* Couleur blanche pour correspondre à la navbar */
-  font-size: 1.5rem; /* Taille de l'icône */
+  color: #fff; 
+  font-size: 1.5rem; 
   cursor: pointer;
 }
 
 .navbar-cart-link:hover {
-  color: #f0a500; /* Couleur dorée au survol */
+  color: #f0a500; 
 }

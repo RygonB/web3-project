@@ -4,7 +4,7 @@ import "./FilterDropdown.css"
 export default function FilterDropdown({ onSort }) {
   function handleSort(event) {
     const option = event.target.value;
-    onSort(option); // Informer le parent du choix de tri
+    onSort(option); 
   }
 
   return (

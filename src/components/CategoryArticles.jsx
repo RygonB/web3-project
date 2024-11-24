@@ -6,7 +6,6 @@ import "./CategoryArticle.css"
 export default function CategoryArticles({ initialArticles, currentCategory }) {
   const [articles, setArticles] = useState(initialArticles);
 
-  // Fonction pour gérer le tri
   function handleSort(option) {
     let sortedArticles = [...articles];
 
@@ -24,10 +23,10 @@ export default function CategoryArticles({ initialArticles, currentCategory }) {
         sortedArticles.sort((a, b) => b.name.localeCompare(a.name));
         break;
       default:
-        sortedArticles = initialArticles; // Réinitialiser à l'ordre initial
+        sortedArticles = initialArticles;
     }
 
-    setArticles(sortedArticles); // Mettre à jour l'état avec les articles triés
+    setArticles(sortedArticles); 
   }
 
   return (
