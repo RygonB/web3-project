@@ -28,7 +28,7 @@ const articles = [
       name: 'Moniteur 5K',
       category: 'moniteur',
       price: 299.99,
-      description: 'C est l écran où s affichent les informations saisies ou demandées par l utilisateur et générées ou restituées par l ordinateur, sous forme de texte et d images en deux dimensions avec éventuellement un effet à trois dimensions.',
+      description: 'C\'est l\'écran où s\'affichent les informations saisies ou demandées par l\'utilisateur et générées ou restituées par l\'ordinateur, sous forme de texte et d\'images en deux dimensions avec éventuellement un effet à trois dimensions.',
       image: '/images/monitor5k.jpg',
     },
     {
@@ -52,7 +52,7 @@ const articles = [
       name: 'Hyper X Cloud 2',
       category: 'casque',
       price: 149.99,
-      description: 'La conception révolutionnaire des pilotes des chambres doubles du HyperX Cloud Alpha vous permet de bénéficier d une écoute de grande qualité, avec une meilleure distinction, une plus grande clarté et une distorsion réduite',
+      description: 'La conception révolutionnaire des pilotes des chambres doubles du HyperX Cloud Alpha vous permet de bénéficier d\'une écoute de grande qualité, avec une meilleure distinction, une plus grande clarté et une distorsion réduite',
       image: '/images/casqueHyperX.jpg',
     },
     {
@@ -84,7 +84,7 @@ const articles = [
       name: 'Blue Yeti',
       category: 'micro',
       price: 123.99,
-      description: 'Take your gaming, podcasting and streaming to the ultimate level with the iconic Yeti—the mic that’s powered top creators for years.',
+      description: 'Take your gaming, podcasting and streaming to the ultimate level with the iconic Yeti—the mic that\'s powered top creators for years.',
       image: '/images/mircorBlueYeti.jpg',
     },
     {
@@ -108,7 +108,7 @@ const articles = [
       name: 'Moniteur QHD',
       category: 'moniteur',
       price: 164.99,
-      description: 'Redéfinissez le jeuDécouvrez le nouveau moniteur ultra-large de 49 pouces avec un format inédit de 32:9, la technologie Quantum Dot',
+      description: 'Redéfinissez le jeu. Découvrez le nouveau moniteur ultra-large de 49 pouces avec un format inédit de 32:9, la technologie Quantum Dot',
       image: '/images/monitorIncurve.jpg',
     },
     {
