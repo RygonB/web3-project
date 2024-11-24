@@ -28,7 +28,7 @@ const articles = [
       name: 'Moniteur 5K',
       category: 'moniteur',
       price: 299.99,
-      description: 'zebi monitor 2.',
+      description: 'C est l écran où s affichent les informations saisies ou demandées par l utilisateur et générées ou restituées par l ordinateur, sous forme de texte et d images en deux dimensions avec éventuellement un effet à trois dimensions.',
       image: '/images/monitor5k.jpg',
     },
     {
@@ -44,7 +44,7 @@ const articles = [
       name: 'Casque gamer',
       category: 'casque',
       price: 99.99,
-      description: 'Les AirPods Max réinventent le casque circum-auriculaire avec un transducteur conçu par Apple pour un son haute fidélité',
+      description: 'Jouez à vos jeux vidéos préférés avec un son clair avec le Logitech G Pro X SE Noir.',
       image: '/images/casqueGamer.jpg',
     },
     {
@@ -60,7 +60,7 @@ const articles = [
       name: 'Casque travail',
       category: 'casque',
       price: 29.99,
-      description: 'Les AirPods Max réinventent le casque circum-auriculaire avec un transducteur conçu par Apple pour un son haute fidélité',
+      description: 'Simple et efficace',
       image: '/images/casquePc.jpg',
     },
     {
